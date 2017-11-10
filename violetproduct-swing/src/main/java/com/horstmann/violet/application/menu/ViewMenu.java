@@ -75,6 +75,14 @@ public class ViewMenu extends JMenu
      */
     private void createMenu()
     {
+        tmp.addActionListener(new ActionListener()
+            {
+                public void actionPerformed(ActionEvent event)
+                {
+                    System.out.println("TEST");
+                }   
+            });
+        this.add(tmp);
 
         zoomOut.addActionListener(new ActionListener()
         {
@@ -294,6 +302,9 @@ public class ViewMenu extends JMenu
 
     @ResourceBundleBean(key = "view.zoom_in")
     private JMenuItem zoomIn;
+
+    @ResourceBundleBean(key = "view.zoom_in")
+    private JMenuItem tmp;
 
     @ResourceBundleBean(key = "view.grow_drawing_area")
     private JMenuItem growDrawingArea;

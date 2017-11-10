@@ -38,6 +38,7 @@ public class EditorToolsPanelUI extends PanelUI
         c.removeAll();
         c.setBackground(ThemeManager.getInstance().getTheme().getSidebarElementBackgroundColor());
 
+        this.editorToolsPanel.getTmpButton().setUI(new IconButtonUI(FULLSIZE_SCALING_FACTOR));
         this.editorToolsPanel.getZoomInButton().setUI(new IconButtonUI(FULLSIZE_SCALING_FACTOR));
         this.editorToolsPanel.getZoomOutButton().setUI(new IconButtonUI(FULLSIZE_SCALING_FACTOR));
         this.editorToolsPanel.getDeleteButton().setUI(new IconButtonUI(FULLSIZE_SCALING_FACTOR));
@@ -61,6 +62,7 @@ public class EditorToolsPanelUI extends PanelUI
             this.toolsPanel = new JPanel();
             this.toolsPanel.setOpaque(false);
             this.toolsPanel.setBorder(new EmptyBorder(0, 0, 0, 0));
+            this.toolsPanel.add(this.editorToolsPanel.getTmpButton());
             this.toolsPanel.add(this.editorToolsPanel.getUndoButton());
             this.toolsPanel.add(this.editorToolsPanel.getZoomInButton());
             this.toolsPanel.add(this.editorToolsPanel.getZoomOutButton());
@@ -69,9 +71,17 @@ public class EditorToolsPanelUI extends PanelUI
             this.toolsPanel.add(this.editorToolsPanel.getCutButton());
             this.toolsPanel.add(this.editorToolsPanel.getCopyButton());
             this.toolsPanel.add(this.editorToolsPanel.getPasteButton());
+            this.editorToolsPanel.getTmpButton().setUI(new IconButtonUI(FULLSIZE_SCALING_FACTOR));
 
             GridBagLayout layout = new GridBagLayout();
             this.toolsPanel.setLayout(layout);
+
+            GridBagConstraints c0 = new GridBagConstraints();
+            c0.anchor = GridBagConstraints.CENTER;
+            c0.insets = new Insets(0, 0, 5, 15);
+            c0.gridx = 0;
+            c0.gridy = 1;
+            layout.setConstraints(this.editorToolsPanel.getTmpButton(), c0);
 
             GridBagConstraints c1 = new GridBagConstraints();
             c1.anchor = GridBagConstraints.CENTER;

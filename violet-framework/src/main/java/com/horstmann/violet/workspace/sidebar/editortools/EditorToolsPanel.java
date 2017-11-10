@@ -118,7 +118,14 @@ public class EditorToolsPanel extends JPanel implements ISideBarElement
                 	cutCopyPasteBehavior.paste();
                 }
             }
-        });        
+        });
+        this.tmp.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                System.out.println("TESTING...");
+            }
+        });   
     }
     
     /**
@@ -244,9 +251,16 @@ public class EditorToolsPanel extends JPanel implements ISideBarElement
         return this.bPaste;
     }
 
+    public JButton getTmpButton()
+    {
+        return this.tmp;
+    }
 
     /** current workspace */
     private IWorkspace workspace;
+
+    @ResourceBundleBean(key = "zoomout")
+    private JButton tmp;
 
     @ResourceBundleBean(key = "zoomin")
     private JButton bZoomIn;
