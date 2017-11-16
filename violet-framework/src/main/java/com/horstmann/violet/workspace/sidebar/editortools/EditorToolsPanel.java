@@ -24,6 +24,7 @@ package com.horstmann.violet.workspace.sidebar.editortools;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Collection;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -38,6 +39,9 @@ import com.horstmann.violet.workspace.editorpart.behavior.CutCopyPasteBehavior;
 import com.horstmann.violet.workspace.editorpart.behavior.UndoRedoCompoundBehavior;
 import com.horstmann.violet.workspace.sidebar.ISideBarElement;
 import com.horstmann.violet.workspace.sidebar.SideBar;
+
+import com.horstmann.violet.product.diagram.abstracts.edge.IEdge;
+import com.horstmann.violet.product.diagram.abstracts.node.INode;
 
 @ResourceBundleBean(resourceReference = SideBar.class)
 public class EditorToolsPanel extends JPanel implements ISideBarElement
@@ -123,7 +127,15 @@ public class EditorToolsPanel extends JPanel implements ISideBarElement
         {
             public void actionPerformed(ActionEvent e)
             {
-                System.out.println("TESTING...");
+                Collection<INode> nodes = workspace.getGraphFile().getGraph().getAllNodes();
+                Collection<IEdge> edges = workspace.getGraphFile().getGraph().getAllEdges();
+
+                int numberOfNodes = nodes.size();
+                int numberOfEdges = edges.size();
+                System.out.println("Diagram Statistics");
+                System.out.println("==================");
+                System.out.println("Number of nodes: " + numberOfNodes);
+                System.out.println("Number of edges: " + numberOfEdges);
             }
         });   
     }
