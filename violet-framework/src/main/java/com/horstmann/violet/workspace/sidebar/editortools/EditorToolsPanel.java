@@ -43,6 +43,10 @@ import com.horstmann.violet.workspace.sidebar.SideBar;
 import com.horstmann.violet.product.diagram.abstracts.edge.IEdge;
 import com.horstmann.violet.product.diagram.abstracts.node.INode;
 
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+
 @ResourceBundleBean(resourceReference = SideBar.class)
 public class EditorToolsPanel extends JPanel implements ISideBarElement
 {
@@ -136,6 +140,26 @@ public class EditorToolsPanel extends JPanel implements ISideBarElement
                 System.out.println("==================");
                 System.out.println("Number of nodes: " + numberOfNodes);
                 System.out.println("Number of edges: " + numberOfEdges);
+
+                JFrame.setDefaultLookAndFeelDecorated(true);
+                JFrame frame = new JFrame("Bar Chart");
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                frame.setSize(350, 300);
+ 
+                String title = "Diagram Statistics";
+                double[] values = new double[]{numberOfNodes, numberOfEdges};
+                String[] labels = new String[]{"Number of Nodes", "Number of Edges"};
+                Color[] colors = new Color[]{
+                    Color.red,
+                    Color.orange,
+                    Color.yellow,
+                    Color.green,
+                    Color.blue
+                };
+                DiagramBarChart bc = new DiagramBarChart(values, labels, colors, title);
+ 
+                frame.add(bc);
+                frame.setVisible(true);
             }
         });   
     }
