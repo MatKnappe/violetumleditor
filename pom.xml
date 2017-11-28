@@ -21,8 +21,8 @@
 		<!--module>violetproduct-jnlp</module -->
 		<!-- <module>violetproduct-exe</module> -->
 		<!-- module>violetproduct-rpm</module-->
-		<module>violetproduct-deb</module>
-		<module>violetproduct-web</module>
+		<!-- <module>violetproduct-deb</module> -->
+		<!-- <module>violetproduct-web</module> -->
 	</modules>
 	<properties>
 		<applicationVersion>2.5.3</applicationVersion>
@@ -74,4 +74,12 @@
             </url>
 		</repository>
 	</repositories>
+
+	<dependencies>
+	  <dependency>
+            <groupId>org.knowm.xchart</groupId>
+            <artifactId>xchart</artifactId>
+            <version>3.5.0</version>
+	  </dependency>
+	</dependencies>
 </project>
