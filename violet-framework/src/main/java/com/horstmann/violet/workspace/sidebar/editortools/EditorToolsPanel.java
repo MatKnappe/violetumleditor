@@ -243,7 +243,7 @@ public class EditorToolsPanel extends JPanel implements ISideBarElement
                         for (IEdge anEdge : edges) {
                             INode start = anEdge.getStartNode();
                             INode end = anEdge.getEndNode();
-                            if (aNode.equals(start) || aNode.equals(end)) {
+                            if (aNode.equals(start)) {
                                 objCbo++;
                             }
                         }
